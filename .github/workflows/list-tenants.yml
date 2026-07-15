@@ -1,0 +1,10 @@
+name: List Tenants
+on:
+  workflow_dispatch:
+
+jobs:
+  list:
+    uses: kanzalqalandri/platform-workflows/.github/workflows/list-tenants.yml@main
+    with:
+      app: pwg-ui
+    secrets: inherit

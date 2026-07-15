@@ -1,0 +1,21 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      tenant:
+        description: 'Target tenant (bare id) — cluster auto-detected'
+        required: true
+        type: string
+      image_tag:
+        description: 'Image tag (e.g. alpine, latest)'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    uses: kanzalqalandri/platform-workflows/.github/workflows/deploy.yml@main
+    with:
+      tenant: ${{ inputs.tenant }}
+      app: pwg-ui
+      image_tag: ${{ inputs.image_tag }}
+    secrets: inherit
