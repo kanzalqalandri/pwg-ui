@@ -3,10 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       env:
-        description: 'Target environment'
+        description: 'Target environment (e.g. dev, qa, prod) — validated server-side'
         required: true
-        type: choice
-        options: [dev, qa, prod]
+        type: string
       image_tag:
         description: 'Image tag (e.g. alpine, latest)'
         required: true
